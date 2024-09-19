@@ -24,8 +24,10 @@ const Donationform = () => {
   // Handle click to set the selected organization name
   const handleclick = (id) => {
     const item = organization.find((item) => item.id === id);
-    const { name } = item;
-    setOrganizationname(name);
+    if (item) {
+      const { name } = item;
+      setOrganizationname(name);
+    }
   };
 
   useEffect(() => {
@@ -33,10 +35,10 @@ const Donationform = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen border border-gray">
+    <div className="flex flex-col md:flex-row min-h-screen border border-gray">
       {/* Sidebar */}
-      <div className="w-[30%] bg-[#E7E7E7] p-4">
-        <h1 className="text-3xl font-semibold text-[#466D68] mb-4">
+      <div className="w-full md:w-[30%] bg-[#E7E7E7] p-4">
+        <h1 className="text-2xl md:text-3xl font-semibold text-[#466D68] mb-4">
           Select Non-Profit
         </h1>
         <input
@@ -61,20 +63,20 @@ const Donationform = () => {
           </div>
         ))}
 
-        <div className="flex  pt-[90%]">
-          <button className="bg-[#466D68] text-white border border-white py-3 px-6 rounded text-xl flex items-center justify-between gap-6 w-[40%] h-12">
+        <div className="flex flex-col mt-[400px] md:flex-row pt-6 md:pt-12 space-y-2 md:space-y-0 md:space-x-4">
+          <button className="bg-[#466D68] text-white border border-white py-2 px-4 rounded text-lg flex items-center justify-between gap-2 md:gap-4 w-full md:w-[45%]">
             Filter
             <BsSliders />
           </button>
 
-          <button className="bg-[#466D68] text-white border border-white py-3 px-6  rounded text-xl flex items-center justify-center w-[40%] h-12">
+          <button className="bg-[#466D68] text-white border border-white py-2 px-4 rounded text-lg flex items-center justify-center w-full md:w-[45%]">
             Check
           </button>
         </div>
       </div>
 
       {/* Donation Form */}
-      <div className="w-[60%] p-6 bg-white rounded-lg">
+      <div className="w-full md:w-[60%] p-4 md:p-6 bg-white rounded-lg">
         <Donateindividual name={organizationname} />
       </div>
     </div>
