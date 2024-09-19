@@ -1,0 +1,22 @@
+/* In your App.css or a global stylesheet */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-light {
+  color: #1a7b6f;
+  font-weight: 300; /* Light weight */
+}
+
+.text-bold {
+  color: #1a7b6f;
+  font-weight: 700; /* Bold weight */
+}
+/* App.css */
+::placeholder {
+  color: #466D68;
+}
+
+input {
+  border-color: #456D68;
+}
